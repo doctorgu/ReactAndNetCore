@@ -150,7 +150,7 @@ namespace MvcMovieCompare.Controllers
             {
                 return NotFound();
             }
-
+            
             var movie = await _context.Movie
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (movie == null)

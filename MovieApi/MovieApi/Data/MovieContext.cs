@@ -4,15 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using MvcMovieCompare.Models;
+using MovieApi.Models;
 
-namespace MvcMovieCompare.Data
+namespace MovieApi.Data
 {
-    public class MvcMovie2Context
+    public class MovieContext
     {
         private static string _ConnectionString = "";
 
-        public MvcMovie2Context ()
+        public MovieContext ()
         {
             
         }
@@ -98,7 +98,7 @@ values  (@Genre, @Price, @ReleaseDate, @Title)
             using (var conn = new SqlConnection(_ConnectionString))
             {
                 conn.Open();
-                var helper = new DbHelperSql(conn, 10);
+                var helper = new DbHelperSql(conn);
 
                 string sql = @"
 update  Movie
