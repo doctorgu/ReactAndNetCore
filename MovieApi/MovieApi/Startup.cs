@@ -34,7 +34,7 @@ namespace MovieApi
                                   builder =>
                                   {
                                       builder
-                                      .WithOrigins("http://localhost:3000") //Allow test react site call
+                                      .WithOrigins("http://localhost:3000", "http://localhost:8000") //Allow test react site call
                                       .AllowAnyHeader() //Allow post header
                                       ;
                                   });

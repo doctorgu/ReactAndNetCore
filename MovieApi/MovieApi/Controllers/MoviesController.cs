@@ -77,5 +77,113 @@ namespace MovieApi.Controllers
             _context.Remove(movie);
             return true;
         }
+
+        [HttpGet("/routes")]
+        public IEnumerable<object> Routes()
+        {
+            //var Routes = new Route[]
+            //{
+            //    new Route()
+            //    {
+            //        Path = "/",
+            //        Component = "../layouts/BasicLayout",
+            //        Routes = new Route[]
+            //        {
+            //            new Route()
+            //            {
+            //                Path = "/dashboard",
+            //                Name = "dashboard",
+            //                Icon = "dashboard",
+            //                Routes = new Route[]
+            //                {
+            //                    new Route()
+            //                    {
+            //                        Name = "analysis",
+            //                        Path = "/dashboard/analysis",
+            //                        Component = "./dashboard/analysis",
+            //                    },
+            //                    new Route()
+            //                    {
+            //                        Name = "monitor",
+            //                        Path = "/dashboard/monitor",
+            //                        Component = "./dashboard/monitor",
+            //                    },
+            //                    new Route()
+            //                    {
+            //                        Name = "workplace",
+            //                        Path = "/dashboard/workplace",
+            //                        Component = "./dashboard/workplace",
+            //                    },
+            //                },
+            //            },
+            //        },
+            //    },
+            //};
+
+            return new[]
+            {
+                new
+                {
+                    Path = "/",
+                    Component = "../layouts/BasicLayout",
+                    Routes = new []
+                    {
+                        new
+                        {
+                            Path = "/dashboard",
+                            Name = "dashboard",
+                            Icon = "dashboard",
+                            Routes = new []
+                            {
+                                new
+                                {
+                                    Name = "analysis",
+                                    Path = "/dashboard/analysis",
+                                    Component = "./dashboard/analysis",
+                                },
+                                new
+                                {
+                                    Name = "monitor",
+                                    Path = "/dashboard/monitor",
+                                    Component = "./dashboard/monitor",
+                                },
+                                new
+                                {
+                                    Name = "workplace",
+                                    Path = "/dashboard/workplace",
+                                    Component = "./dashboard/workplace",
+                                },
+                            },
+                        },
+                    },
+                },
+            };
+
+            //return Routes;
+        }
+
+        [HttpGet("/authorities")]
+        public IEnumerable<object> Authorities()
+        {
+            return new[]
+            {
+                new {
+                    Path = "/dashboard/analysis",
+                    Ids = new [] { "user", "admin", },
+                },
+                new {
+                    Path = "/dashboard/monitor",
+                    Ids = new [] { "user", "admin", },
+                },
+                new {
+                    Path = "/dashboard/workplace",
+                    Ids = new [] { "admin", },
+                },
+                new {
+                    Path = "/form/basic-form",
+                    Ids = new [] { "admin", },
+                },
+            };
+        }
     }
 }

@@ -10,6 +10,7 @@ import Delete from "./movies/delete";
 const App = () => {
   return (
     <>
+      <h1>Hello</h1>
       <BrowserRouter>
         <Switch>
           <Route exact={true} path="/movies/" component={Index} />
